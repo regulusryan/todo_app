@@ -2,8 +2,10 @@ import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import Header from './components/header';
 import { Avatar } from 'react-native-elements';
+import { createStackNavigator, createAppContainer } from 'react-navigation';
+import Todo from './screens/Todo';
 
-export default class App extends React.Component {
+class App extends React.Component {
   render() {
     return (
       // Container.
@@ -18,14 +20,22 @@ export default class App extends React.Component {
         />
         <Text style={styles.bigblue}>Open up App.js to start working on your app!</Text>
         <Button
-          title={'Hello'}
-          onPress={() => { console.log('happy'); }}
-          color="yellow"
+          title="Go to Todo"
+          onPress={() => this.props.navigation.navigate('TodoScreen')}
         />
       </View>
     );
   }
 }
+
+const AppNavigator = createStackNavigator({
+  Home: App,
+  TodoScreen: Todo,
+});
+
+const AppContainer = createAppContainer(AppNavigator);
+
+export default AppContainer;
 
 const styles = StyleSheet.create({
   container: {
