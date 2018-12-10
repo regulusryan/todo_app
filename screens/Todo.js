@@ -1,10 +1,31 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Button, ScrollView } from 'react-native';
 
 class Todo extends React.Component {
     render() {
-        return (<Text>Todo App</Text>);
+        return (
+            <ScrollView>
+                <View style={styles.container1} />
+                <View style={styles.container2} />
+                <View style={styles.container3} />
+            </ScrollView>
+        );
     }
 }
+
+const styles = StyleSheet.create({
+    container1: {
+        padding: 100,
+        backgroundColor: 'blue'
+    },
+    container2: {
+        padding: 100,
+        backgroundColor: 'red'
+    },
+    container3: {
+        padding: 100,
+        backgroundColor: 'yellow'
+    }
+});
 
 export default Todo;
