@@ -4,24 +4,38 @@ import Header from './components/header';
 import { Avatar } from 'react-native-elements';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 import Todo from './screens/Todo';
+import Flexbox from './screens/Flexbox';
+
 
 class App extends React.Component {
+
+  static navigationOptions = {
+    title: 'Home',
+  };
+
   render() {
     return (
       // Container.
       <View style={styles.container}>
-        <Header textIwant={'helllllo'} />
-        <Header textIwant={'goodbye'} />
-        {/* <Header textIwant={'Hello World'} /> */}
         <Avatar
           rounded
-          small
+          large
           title={';)'}
         />
-        <Text style={styles.bigblue}>Open up App.js to start working on your app!</Text>
+        <View style={{ padding: 20 }} />
+        <Header textIwant={'helllllo'} />
+        <View style={{ padding: 20 }} />
+        <Header textIwant={'goodbye'} />
+        <View style={{ padding: 20 }} />
+
         <Button
           title="Go to Todo"
           onPress={() => this.props.navigation.navigate('TodoScreen')}
+        />
+        <View style={{ padding: 20 }} />
+        <Button
+          title="Go to Flexbox"
+          onPress={() => this.props.navigation.navigate('FlexboxScreen')}
         />
       </View>
     );
@@ -31,6 +45,7 @@ class App extends React.Component {
 const AppNavigator = createStackNavigator({
   Home: App,
   TodoScreen: Todo,
+  FlexboxScreen: Flexbox
 });
 
 const AppContainer = createAppContainer(AppNavigator);

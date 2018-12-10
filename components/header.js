@@ -42,7 +42,6 @@ class Header extends React.Component { // (3)
                 {/* <Text>hello world</Text> */}
                 {/* <Text>{this.textIwant}</Text> */}
                 <Text onPress={this.addNumberWhenPressed}>{this.textIwant}</Text>
-                <Button onPress={this.addNumberWhenPressed} title='Hello' />
             </View>
         );
     }
